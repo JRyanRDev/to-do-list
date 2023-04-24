@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    /* color palette */
+    --color1: #032763;
+    --color2: #03476E;
+    --color3: #074F57;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--color3);
+}
+
+div#page-wrapper {
+    width: 80vw;
+    min-width: 250px;
+    max-width: 600px;
+    margin: auto;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    box-shadow: 0 0 10px #00000060;
+}
+
+section#toDoList {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #fff;
+    font-family: 'Roboto', sans-serif;
+    
+    padding: 30px;
+    border-radius: 8px;
+}
+
+section#toDoList h3 {
+    text-align: center;
+    font-size: 3rem;
+
+    padding-bottom: 15px;
+}
+
+div#addTask {
+    display: flex;
+    gap: 5px;
+    padding: 20px 0;
+}
+
+input[type="text"] {
+    padding: 5px;
+    border: 1px solid #000;
+
+    width: 200px;
+}
+
+input[type="submit"], button{
+    cursor: pointer;
+
+    padding: 2px;
+    background-color: var(--color3);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+input#addTaskButton, button {
+    width: 35px;
+    
+    transition: ease-in-out 0.2s;
+}
+
+input#addTaskButton:hover, button:hover{
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+}
+
+section#toDoList h2 {
+    font-size: 2rem;
+}
+
+div#tasks {
+    height: 190px;
+    
+    margin-top: 10px;
+
+    overflow-y: auto;
+}
+
+ul#taskList {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    padding: 15px 0;
+}
+
+ul#taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+
+    list-style-type: none;
+    
+    padding: 5px 15px;
+    font-size: 1.5rem;
+
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+div.taskTitle {
+    width: 65%;
+    overflow-x: auto;
+}
+
+div.buttonSpace {
+    display: flex;
+    gap: 1px;
+}
+
+div.buttonSpace button {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+span.material-symbols-outlined {
+    font-size: 2rem;
+}
+
+
