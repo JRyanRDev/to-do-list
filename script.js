@@ -1,5 +1,6 @@
 const tasks = document.querySelector("ul#taskList");
 var textInput = document.getElementById("iToDo");
+const form = document.getElementById("taskForm");
 
 
 function addTaskList(userInput) {
@@ -66,3 +67,7 @@ addTaskButton.addEventListener("click", () => {
 document.addEventListener("click", (e) => {
     buttonsFunction(e);
 });
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+})
