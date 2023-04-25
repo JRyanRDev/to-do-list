@@ -100,6 +100,13 @@ div#tasks {
     overflow-y: auto;
 }
 
+@media (orientation: landscape) and (max-height:400px) {
+
+    div#tasks {
+        max-height: 80px;
+    }
+}
+
 ul#taskList {
     display: flex;
     flex-direction: column;
@@ -142,9 +149,10 @@ div.buttonSpace button {
     justify-content: center;
 }
 
-
 span.material-symbols-outlined {
     font-size: 2rem;
 }
 
-
+.finished {
+    text-decoration: line-through;
+}

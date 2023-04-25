@@ -1,3 +1,7 @@
+const tasks = document.querySelector("ul#taskList");
+var textInput = document.getElementById("iToDo");
+
+
 function addTaskList(userInput) {
     if (userInput.trim().length === 0) {
         return;
@@ -22,36 +26,43 @@ function createButtons(tasks) {
     const finishTask = document.createElement("button");
     const finishTaskIcon = document.createElement("span");
     finishTaskIcon.setAttribute("class", "material-symbols-outlined");
+    finishTaskIcon.classList.add("done");
     finishTaskIcon.textContent = "done";
     finishTask.append(finishTaskIcon);
-
-    const editTask = document.createElement("button");
-    const editTaskIcon = document.createElement("span");
-    editTaskIcon.setAttribute("class", "material-symbols-outlined");
-    editTaskIcon.textContent = "edit";
-    editTask.append(editTaskIcon);
 
     const deleteTask = document.createElement("button");
     const deleteTaskIcon = document.createElement("span");
     deleteTaskIcon.setAttribute("class", "material-symbols-outlined");
+    deleteTaskIcon.classList.add("delete");
     deleteTaskIcon.textContent = "delete";
     deleteTask.append(deleteTaskIcon);
     
-    buttonSpace.append(finishTask, editTask, deleteTask);
+    buttonSpace.append(finishTask, deleteTask);
     tasks.append(buttonSpace);
 }
 
-function deleteTaskList() {
+function buttonsFunction(event) {
+    const eventTarget = event.target;
+    const parentElement = eventTarget.closest("li");
+    if (eventTarget.classList.contains("done")) {
+        var node = parentElement.childNodes;
+        for (let i=0; i < node.length; i++) {
+            if (node[i].classList.contains("taskTitle")) {
+                const taskText = node[i];
+                taskText.classList.toggle("finished");
+            }
+        }  
+    }
+    else if (eventTarget.classList.contains("delete")) {
+        parentElement.remove();
+    };
 }
-
-
-const tasks = document.querySelector("ul#taskList");
-const addTaskButton = document.querySelector("input#addTaskButton");
-const deleteTaskButton = document.querySelectorAll("div.buttonSpace button");
-var textInput = document.getElementById("iToDo");
 
 addTaskButton.addEventListener("click", () => {
     addTaskList(textInput.value);
-})
+});
 
 
+document.addEventListener("click", (e) => {
+    buttonsFunction(e);
+});
